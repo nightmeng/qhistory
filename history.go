@@ -19,6 +19,7 @@ func NewHistory(dir string) (History, error) {
 	opts := badger.DefaultOptions
 	opts.Dir = dir
 	opts.ValueDir = dir
+	opts.ValueLogFileSize = 1 << 20
 
 	db, err := badger.Open(opts)
 	if err != nil {
